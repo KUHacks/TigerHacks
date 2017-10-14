@@ -5,15 +5,18 @@ import time
 # Useful for working with dynamically generated html
 from bs4 import BeautifulSoup
 from selenium import webdriver
+base_url = "https://query.nytimes.com/search/sitesearch/?action=click&contentCollection=U.S.&region=TopBar&WT.nav=searchWidget&module=SearchSubmit&pgtype=article#/"
 
 def parse_headlines(topic):
     print("Attempting to open URL")
     #url = "https://www.nytimes.com/2017/10/06/us/las-vegas-shooting.html"
-    url = "https://query.nytimes.com/search/sitesearch/?action=click&contentCollection=U.S.&region=TopBar&WT.nav=searchWidget&module=SearchSubmit&pgtype=article#/puppies"
+    query = topic.replace(' ', '%20')
+    query_url = base_url + query
+    topic_parts = topic.split(' ') # comma seperates if we must
 
     # Working with dynamically generated html
     browser = webdriver.PhantomJS(executable_path=r"/Users/twalen/Desktop/phantomjs-2.1.1-macosx/bin/phantomjs")
-    browser.get(url)
+    browser.get(query_url)
     html = browser.page_source
     soup = BeautifulSoup(html, "html.parser")
     conts = soup.find_all('h3') # gets a list of tags
@@ -32,7 +35,6 @@ def parse_headlines(topic):
 
     # now we can determine if we have good input
     valid_topics = []
-    topic_parts = topic.split(' ') # comma seperates if we must
 
     for i in range(0, len(topic_parts)):
         valid_topics = valid_topics + list(filter(lambda x: topic_parts[i] in x[0], titles))
