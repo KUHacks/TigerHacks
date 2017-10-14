@@ -8,57 +8,60 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 base_url = "https://query.nytimes.com/search/sitesearch/?action=click&contentCollection=U.S.&region=TopBar&WT.nav=searchWidget&module=SearchSubmit&pgtype=article#/"
 
-# pretty slow method
-def parse_headlines(topic, url):
-    print("Attempting to open URL")
-    #url = "https://www.nytimes.com/2017/10/06/us/las-vegas-shooting.html"
+class Topic:
+    def __init__(self, topic, depth):
+        self.topic = topic # Each instantiation has its own topic
+        self.depth = depth # Depth of search on each news source
+        self.articles = [] # Initialized as an empty list that will be populated by each news source
 
-    topic_parts = topic.split(' ') # comma seperates if we must
+    def get_nyt_articles(self, url):
+        topic_parts = self.topic.split(' ') # comma seperates if we must
 
-    # Working with dynamically generated html
-    browser = webdriver.PhantomJS(executable_path=r"/Users/twalen/Desktop/phantomjs-2.1.1-macosx/bin/phantomjs") # CHANGE IF ON A DIFFERENT MACHINE
-    browser.get(url)
-    html = browser.page_source
-    soup = BeautifulSoup(html, "html.parser")
-    conts = soup.find_all('h3') # gets a list of tags
-    titles = [] # empty list
+        # Working with dynamically generated html
+        browser = webdriver.PhantomJS(executable_path=r"/Users/twalen/Desktop/phantomjs-2.1.1-macosx/bin/phantomjs") # CHANGE IF ON A DIFFERENT MACHINE
+        browser.get(url)
+        html = browser.page_source
+        soup = BeautifulSoup(html, "html.parser")
+        conts = soup.find_all('h3') # gets a list of tags
+        titles = [] # empty list
 
-    # Let's get those titles and their urls
-    for i in range(0, len(conts)):
-        temp = conts[i].find('a')
-        if temp:
-            if temp.string:
-                temp = (temp.string, temp['href'])
-                titles.append(temp)
-                print(temp)
+        # Let's get those titles and their urls
+        for i in range(0, len(conts)):
+            temp = conts[i].find('a')
+            if temp:
+                if temp.string:
+                    temp = (temp.string, temp['href'])
+                    titles.append(temp)
 
-    print("\n\n\n")
+        # now we can determine if we have good input
+        valid_topics = []
 
-    # now we can determine if we have good input
-    valid_topics = []
+        for i in range(0, len(topic_parts)):
+            valid_topics = valid_topics + list(filter(lambda x: topic_parts[i] in x[0], titles))
 
-    for i in range(0, len(topic_parts)):
-        valid_topics = valid_topics + list(filter(lambda x: topic_parts[i] in x[0], titles))
+        return valid_topics
 
-    for i in range(0, len(valid_topics)):
-        print(valid_topics[i])
+    def get_arcticles(self):
+        query = self.topic.replace(' ', '%20')
+        query_url = base_url + query + '/'
 
-    print("\n\nEnding\n\n")
+        # concat results from a parse
+        for i in range(0, self.depth):
+            # query
+            self.articles = self.articles + self.get_nyt_articles(query_url)
+            # build next url
+            next_page = i + 1
+            query_url = query_url + str(next_page) + '/'
 
-# does not gaurd against bad input
-def find_articles(topic, depth):
-    print("Finding articles about " + topic + " on " + str(depth) + " pages.")
-    query = topic.replace(' ', '%20')
-    query_url = base_url + query + '/'
 
-    for i in range(0, depth):
-        # query
-        parse_headlines(topic, query_url)
-        # build next url
-        next_page = i + 1
-        query_url = query_url + str(next_page) + '/'
-        print('\n\nPage ' + str(next_page))
+
 
 # Testing
-find_articles("The", 5)
-find_articles("The Puppies", 2)
+my_topic = "The"
+d = 5
+print("Searching for articles about " + my_topic + " on " + str(d) + " pages...")
+top = Topic("The", 5)
+top.get_arcticles()
+
+for i in range(0, len(top.articles)):
+    print(top.articles[i])
