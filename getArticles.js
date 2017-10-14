@@ -18,7 +18,19 @@ var getArticles = function(topic) {
     // get a list of articles
     // filter based on title
     // return filtered list
-    console.log(topic.replace(' ', '%20'))
-    // window.open(nyt_url)
+    let topicURL = nyt_url + topic.replace(' ', '%20')
+
+
+    // navigate to the page
+    let nytWindow = window.open(topicURL)
+    // get a list of headlines and urls
+    let titles = []
+    nytWindow.onload = function() {
+        // get a list of headlines and urls
+        let stories = document.getElementsByClassName("story")
+        stories.foreach((story) => {
+            titles.push(story.getElementsByTagName("h3"))
+        })
+    }
 
 }
