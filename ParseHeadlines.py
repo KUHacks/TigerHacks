@@ -6,7 +6,8 @@ import time
 # You'll need to download both Selenium and BeautifulSoup
 from bs4 import BeautifulSoup
 from selenium import webdriver
-base_url = "https://query.nytimes.com/search/sitesearch/?action=click&contentCollection=U.S.&region=TopBar&WT.nav=searchWidget&module=SearchSubmit&pgtype=article#/"
+nyt_base_url = "https://query.nytimes.com/search/sitesearch/?action=click&contentCollection=U.S.&region=TopBar&WT.nav=searchWidget&module=SearchSubmit&pgtype=article#/"
+cnn_base_url = "http://www.cnn.com/search/?size=10&q="
 
 class Topic:
     def __init__(self, topic, depth):
@@ -41,17 +42,29 @@ class Topic:
 
         return valid_topics
 
+    # def get_cnn_articles(self, url):
+
     def get_arcticles(self):
         query = self.topic.replace(' ', '%20')
-        query_url = base_url + query + '/'
 
-        # concat results from a parse
+        # get nyt articles
+        nyt_query_url = nyt_base_url + query + '/'
+
+        # concat results from a parse on a site
         for i in range(0, self.depth):
             # query
             self.articles = self.articles + self.get_nyt_articles(query_url)
             # build next url
             next_page = i + 1
             query_url = query_url + str(next_page) + '/'
+
+        # get cnn articles
+        cnn_query_url = cnn_base_url + query
+
+        # concat results from a parse on a sit
+        for i in range(0, self.depth):
+            # query
+            # build next url
 
 
 
