@@ -1,8 +1,9 @@
 from html.parser import HTMLParser
-from enum import Enum
 import urllib.request
+import re
 
-url = "https://www.nytimes.com/2017/10/06/us/las-vegas-shooting.html"
+#url = "https://www.nytimes.com/2017/10/06/us/las-vegas-shooting.html"
+url = "https://www.nytimes.com/2017/10/13/opinion/trump-false-narrative-iran.html"
 
 names = ["id", "class"]
 tags = ["h1", "p"]
@@ -11,12 +12,10 @@ ids = [["headline"],["story-body-text story-content"]]
 
 keywords = ["claim", "happen"]
 
+regexp = re.compile('\$\d*')
+
 def hasNumbers(inputString):
 	return any(char.isdigit() for char in inputString)
-
-class DataType(Enum):
-	headline = 0
-	body = 1
 
 # This is essentially working and pulling headlines from any NYT article
 class MyHTMLFilter(HTMLParser):
@@ -57,7 +56,11 @@ class MyHTMLFilter(HTMLParser):
 			#if hasNumbers(message) or "happen" in message:
 			tagIndex = tags.index(self.current[len(self.current) - 1][0])
 
-			if tagIndex == 0 or any(subs in message for subs in keywords) or hasNumbers(message): # is a headline, or contains claim
+			#if tagIndex == 0 or any(subs in message for subs in keywords) or hasNumbers(message): # is a headline, or contains claim
+			
+
+			# Let's test regular expressions
+			if regexp.search(message):
 				self.printedData = True
 				print(tagref[tagIndex], message)
 
