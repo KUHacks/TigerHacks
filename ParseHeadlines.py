@@ -33,10 +33,14 @@ def parse_headlines(topic):
     # now we can determine if we have good input
     valid_topics = []
     topic_parts = topic.split(' ') # comma seperates if we must
+
     for i in range(0, len(topic_parts)):
-        valid_topics = list(filter(lambda x: topic_parts[i] in x[0], titles))
+        valid_topics = valid_topics + list(filter(lambda x: topic_parts[i] in x[0], titles))
 
     for i in range(0, len(valid_topics)):
         print(valid_topics[i])
+
+    print("\n\nEnding\n\n")
 # Testing
 parse_headlines("The")
+parse_headlines("The Puppies")
