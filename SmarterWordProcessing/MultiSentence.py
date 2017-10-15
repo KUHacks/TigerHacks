@@ -12,7 +12,7 @@ tags = ["h1", "p"]
 tagref = ["Headline: ", "Story body: "]
 ids = [["headline"],["story-body-text story-content"]]
 
-regexp = re.compile('(\d.*(killed|dead|injured))')
+numFatalRegExp = re.compile('(\d.*(killed|dead|injured))')
 
 f = ""
 
@@ -86,7 +86,7 @@ for url in urls:
 	file.write(url + "\n\n")
 
 	for sent in sentences:
-		if regexp.search(sent):
+		if numFatalRegExp.search(sent):
 			for item in SentenceFunctions.cleanSentence(sent):
 				file.write(item + " ")
 			file.write("\n")

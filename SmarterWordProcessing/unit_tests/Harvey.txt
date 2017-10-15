@@ -1,0 +1,57 @@
+Test for Regular expressions with hurricane harvey this time: \d\d:\d\d and (\d.*(killed|dead|injured)) on 7 articles
+
+
+We are trying to find general information about the incident at hand. That is, specific information regarding what happened
+
+
+https://www.nytimes.com/2017/08/30/us/hurricane-center-timeline.html
+
+
+
+https://www.nytimes.com/2017/08/26/us/hurricane-harvey-forecast-texas-louisiana.html
+
+
+
+https://www.nytimes.com/2017/08/23/us/tropical-storm-harvey-gulf.html
+
+
+
+https://www.nytimes.com/2017/09/11/reader-center/hurricane-harvey-teacups.html
+
+
+
+https://www.nytimes.com/2017/09/17/us/harvey-port-arthur-mayor.html
+
+
+
+https://www.nytimes.com/2017/09/08/theater/alley-theater-harvey-houston.html
+
+
+
+https://www.nytimes.com/2017/09/16/us/hurricane-harvey-houston-wilma-ellis.html
+
+
+
+WORD COUNTS > 2
+---------------
+
+said				68
+The					62
+Mr.					51
+Ms.					41
+storm				40
+I					33
+Ellis				30
+He					28
+one					28
+Harvey				26
+city				25
+could				23
+center				23
+Hurricane			21
+would				21
+But					20
+:					19
+hurricane			17
+like				17
+Houston				17

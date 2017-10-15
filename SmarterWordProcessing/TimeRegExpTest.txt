@@ -1,0 +1,75 @@
+Test for Regular expressions: \d\d:\d\d and (\d.*(killed|dead|injured)) on 7 articles
+
+
+We are trying to find general information about the incident at hand. That is, specific information regarding what happened
+
+
+https://www.nytimes.com/2017/10/02/us/donate-blood-las-vegas.html
+
+At least 58 people were killed and more than 500 injured.
+
+
+https://www.nytimes.com/2017/10/03/us/las-vegas-gunman.html
+
+Sheriff Joseph Lombardo of the Las Vegas Metropolitan Police Department said that at a minimum, she might shed some light on what was going through the mind of the gunman, who killed himself as the police prepared to enter his room.
+At 10:07 p.m. on Sunday, the gunman opened fire on the thousands of people attending a country music festival a few hundred yards northeast of the hotel, firing long, rapid-fire bursts as people screamed and ran for their lives.
+He killed 59 people — the coroner clarified on Tuesday that the number included Mr. Paddock, along with his 58 victims — and wounded hundreds of others.
+In all, more than 500 people were injured, most by gunfire, and some in the panicked rush to escape.
+
+
+https://www.nytimes.com/2017/10/10/us/shift-in-las-vegas-timeline-raises-questions-about-police-response.html
+
+Shift in Las Vegas Timeline Raises Questions About Police Response LAS VEGAS — In the days since Stephen Paddock killed 58 people and wounded hundreds more during a country music festival here, most of the attention has been on the roughly 10 minutes of horror as streams of bullets rained down from his perch on the 32nd floor of the Mandalay Bay Resort and Casino.
+Two officers arrived at the 31st floor at 10:12 p.m. and announced over their radio that the gunfire was coming from one floor above them.
+The gunfire stopped three minutes later, according to the police timeline, and two officers arrived on the 32nd floor at 10:17 p.m. — roughly 18 minutes after Mr. Campos had been shot.
+As eight more officers arrived, just before 10:30 p.m., they began clearing the hotel rooms, looking for any injured guests and watching for anyone assisting the gunman.
+Another team of eight officers arrived on the floor at 10:55 p.m. and the group breached Mr. Paddock’s room at 11:20 p.m., when they saw what one officer would later describe as an “armory” with roughly two dozen rifles.
+
+
+https://www.nytimes.com/2017/10/09/us/jesus-campos-las-vegas-shooting.html
+
+Las Vegas Gunman Shot Security Guard Before, Not After, Targeting Concertgoers LAS VEGAS — The gunman who killed 58 people and wounded hundreds more at a country music festival here last week shot a hotel security guard before, not after, opening fire on concertgoers hundreds of yards away, the authorities said on Monday, a significant shift in their timeline.
+In its previous timeline, the police said that Mr. Campos told Las Vegas officers he had been shot at 10:18 p.m., about three minutes after the concert shooting ended.
+
+
+https://www.nytimes.com/2017/10/09/us/joseph-lombardo-sheriff-las-vegas.html
+
+Since a gunman smashed out windows in a casino hotel suite on Oct. 1 and rained bullets on a country music festival, killing 58 people and wounding hundreds more, Sheriff Lombardo has found himself in charge of one of the most frustrating criminal investigations in memory: a mass shooting by a man who seems to have left no public accounting for his actions.
+
+
+https://www.nytimes.com/2017/10/02/us/las-vegas-mass-shooting-weapons.html
+
+Gunman’s Vantage Point and Preparations Opened the Way for Mass Slaughter From his hotel room on the 32nd floor of the Mandalay Bay Resort and Casino in Las Vegas, Stephen Paddock would have looked down upon a crowd of more than 20,000 people, surging to the final sets of a country music festival.
+He opened fire late Sunday , killing at least 59 people and injuring 527 others in one of the deadliest mass shootings in American history, the authorities said.
+
+
+https://www.nytimes.com/2017/10/07/us/stephen-paddock-vegas.html
+
+Mr. Paddock, a former postal worker and tax auditor, lived an intensely private, unsocial life that exploded into public view on Sunday, when he killed 58 people at a country music festival and then shot himself.
+“I wish I could tell you he was a miserable bastard, that I hate him, that if I could have killed him myself I would have,” said Eric Paddock, a younger brother.
+Mr. Paddock bought his last house in Mesquite, Nev., a retirement community of 18,000 people about 90 minutes from Las Vegas that attracts golfers and gamblers from around the country.
+
+
+WORD COUNTS > 2
+---------------
+
+Mr.					147
+said				132
+Paddock				123
+He					62
+The					43
+police				42
+Lombardo			40
+Sheriff				39
+Las					37
+Vegas				37
+would				31
+people				29
+shooting			28
+I					28
+one					25
+hotel				23
+Campos				23
+gunman				22
+But					21
+officers			21
